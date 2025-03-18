@@ -24,6 +24,7 @@ function Container<T extends React.ElementType = 'div'>({
       css={{
         maxWidth: maxWidth,
         minWidth: minWdith,
+        margin: '0 auto',
         ...etcStyles,
       }}
       {...attribute}
