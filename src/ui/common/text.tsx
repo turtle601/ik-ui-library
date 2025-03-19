@@ -29,10 +29,6 @@ function Text<T extends ElementType = 'span'>({
 }: PolymorpicProps<T, ITextProps>) {
   const Element = as || 'span';
 
-  console.log(color[textColor]);
-  console.log(fontWeight[textWeight]);
-  console.log(fontSize[textSize]);
-
   return (
     <Element
       css={css({
