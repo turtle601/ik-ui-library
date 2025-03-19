@@ -5,7 +5,7 @@ import type { PolymorpicProps } from '../@types/polymorpic';
 
 interface ContainerProps {
   maxWidth: CSSObject['maxWidth'];
-  minWdith: CSSObject['minWidth'];
+  minWidth: CSSObject['minWidth'];
   etcStyles?: CSSObject;
 }
 
