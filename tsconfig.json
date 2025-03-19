@@ -6,7 +6,6 @@
     "jsxImportSource": "@emotion/react",
     "module": "es6",
     "moduleResolution": "node",
-    "baseUrl": "./",
     "strict": true,
     "esModuleInterop": true
   }
