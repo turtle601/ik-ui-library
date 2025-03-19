@@ -5,6 +5,7 @@ import { css, CSSObject } from '@emotion/react';
 import type { PolymorpicProps } from '../../@types/polymorpic';
 
 interface GridContainerProps {
+  isFit?: boolean;
   gap?: CSSProperties['gap'];
   gridItemSize: `${number}%`;
   etcStyles?: CSSObject;
@@ -13,6 +14,7 @@ interface GridContainerProps {
 
 function Container<T extends ElementType = 'div'>({
   as,
+  isFit = false,
   children,
   gap = '0px',
   gridItemSize,
@@ -27,7 +29,9 @@ function Container<T extends ElementType = 'div'>({
         display: 'grid',
         width: '100%',
         height: 'auto',
-        gridTemplateColumns: `repeat(auto-fill, minmax(${gridItemSize}, auto))`,
+        gridTemplateColumns: `repeat(${
+          isFit ? 'auto-fit' : 'auto-fill'
+        }, minmax(${gridItemSize}, auto))`,
         gap: gap,
         ...etcStyles,
       })}
