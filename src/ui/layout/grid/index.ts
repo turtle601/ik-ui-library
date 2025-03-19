@@ -1,4 +1,4 @@
-import Container from 'src/ui/layout/grid/container';
+import Container from './container';
 
 const Grid = {
   Container,

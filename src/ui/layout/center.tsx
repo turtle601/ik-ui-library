@@ -2,9 +2,9 @@ import React from 'react';
 
 import { CSSObject } from '@emotion/react';
 
-import Flex from 'src/ui/layout/flex';
+import Flex from './flex';
 
-import type { PolymorpicProps } from 'src/ui/@types/polymorpic';
+import type { PolymorpicProps } from '../@types/polymorpic';
 
 interface ICenterProps {
   direction?: CSSObject['flexDirection'];

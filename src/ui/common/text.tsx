@@ -1,9 +1,9 @@
 import { ElementType } from 'react';
 import { css, CSSObject } from '@emotion/react';
 
-import { color, fontSize, fontWeight } from 'src/config/styles';
+import { color, fontSize, fontWeight } from '../../config/styles';
 
-import type { PolymorpicProps } from 'src/ui/@types/polymorpic';
+import type { PolymorpicProps } from '../@types/polymorpic';
 
 export interface ITextProps {
   /** 텍스트 메세지 */
@@ -28,6 +28,10 @@ function Text<T extends ElementType = 'span'>({
   ...attribute
 }: PolymorpicProps<T, ITextProps>) {
   const Element = as || 'span';
+
+  console.log(color[textColor]);
+  console.log(fontWeight[textWeight]);
+  console.log(fontSize[textSize]);
 
   return (
     <Element

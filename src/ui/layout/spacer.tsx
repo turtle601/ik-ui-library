@@ -5,7 +5,7 @@ import type { CSSObject } from '@emotion/react';
 export type SpacerType = 'vertical' | 'horizontal';
 
 import { css } from '@emotion/react';
-import { spacer } from 'src/config/styles';
+import { spacer } from '../../config/styles';
 
 const getSpacerStyle = <T extends SpacerType>({
   direction,

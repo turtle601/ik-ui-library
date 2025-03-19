@@ -1,7 +1,7 @@
 import React from 'react';
 import { CSSObject } from '@emotion/react';
 
-import type { PolymorpicProps } from 'src/ui/@types/polymorpic';
+import type { PolymorpicProps } from '../@types/polymorpic';
 
 interface ContainerProps {
   maxWidth: CSSObject['maxWidth'];

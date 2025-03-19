@@ -2,7 +2,7 @@ import { CSSProperties, ElementType, ReactNode } from 'react';
 
 import { css, CSSObject } from '@emotion/react';
 
-import type { PolymorpicProps } from 'src/ui/@types/polymorpic';
+import type { PolymorpicProps } from '../../@types/polymorpic';
 
 interface GridContainerProps {
   gap?: CSSProperties['gap'];

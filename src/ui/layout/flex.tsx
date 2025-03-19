@@ -1,7 +1,6 @@
 import React from 'react';
 import { css, CSSObject } from '@emotion/react';
-
-import type { PolymorpicProps } from 'src/ui/@types/polymorpic';
+import { PolymorpicProps } from '../@types/polymorpic';
 
 interface FlexProps {
   direction?: CSSObject['flexDirection'];

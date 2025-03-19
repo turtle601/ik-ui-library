@@ -1,6 +1,6 @@
 import { SerializedStyles, css } from '@emotion/react';
 
-import { color } from 'src/config/styles/color';
+import { color } from '../styles';
 
 export const globalStyle: SerializedStyles = css({
   '*': {
