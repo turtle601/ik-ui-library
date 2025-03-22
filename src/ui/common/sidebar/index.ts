@@ -1,7 +1,7 @@
 import Content from './content';
 import Toggle from './toggle';
 
-export const Siderbar = {
+export const Sidebar = {
   Content,
   Toggle,
 } as const;

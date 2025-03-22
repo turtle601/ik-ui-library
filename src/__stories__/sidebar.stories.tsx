@@ -2,16 +2,16 @@ import React from 'react';
 
 import { css } from '@emotion/react';
 
-import { Siderbar } from '../ui/common/sidebar';
+import { Sidebar } from '../ui/common/sidebar';
 
 import type { Meta, StoryObj } from '@storybook/react';
 import { Center } from '../ui';
 
-const meta: Meta<typeof Siderbar> = {};
+const meta: Meta<typeof Sidebar> = {};
 
 export default meta;
 
-type Story = StoryObj<typeof Siderbar>;
+type Story = StoryObj<typeof Sidebar>;
 
 const Item = () => {
   return (
@@ -28,7 +28,7 @@ const Item = () => {
 export const Default: Story = {
   render: () => (
     <>
-      <Siderbar.Toggle>
+      <Sidebar.Toggle>
         <Center
           etcStyles={{
             width: '150px',
@@ -37,10 +37,10 @@ export const Default: Story = {
         >
           sidebar 열기
         </Center>
-      </Siderbar.Toggle>
-      <Siderbar.Content dom={document.querySelector('#sidebar') as HTMLElement}>
+      </Sidebar.Toggle>
+      <Sidebar.Content dom={document.querySelector('#sidebar') as HTMLElement}>
         <Item />
-      </Siderbar.Content>
+      </Sidebar.Content>
     </>
   ),
 };
