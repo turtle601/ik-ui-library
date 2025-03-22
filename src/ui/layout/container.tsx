@@ -1,12 +1,11 @@
-import React from 'react';
-import { CSSObject } from '@emotion/react';
+import React, { CSSProperties } from 'react';
 
 import type { PolymorpicProps } from '../@types/polymorpic';
 
 interface ContainerProps {
-  maxWidth: CSSObject['maxWidth'];
-  minWidth: CSSObject['minWidth'];
-  etcStyles?: CSSObject;
+  maxWidth: CSSProperties['maxWidth'];
+  minWidth: CSSProperties['minWidth'];
+  etcStyles?: CSSProperties;
 }
 
 function Container<T extends React.ElementType = 'div'>({

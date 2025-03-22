@@ -1,4 +1,5 @@
-import { css, CSSObject } from '@emotion/react';
+import { css } from '@emotion/react';
+import { CSSProperties } from 'react';
 
 import { Grid } from '../ui';
 
@@ -14,7 +15,7 @@ export default meta;
 
 type Story = StoryObj<typeof Grid>;
 
-const getGridItemStyle = (): CSSObject => {
+const getGridItemStyle = (): CSSProperties => {
   return {
     width: '100%',
     height: '100%',

@@ -1,5 +1,5 @@
-import { ElementType } from 'react';
-import { css, CSSObject } from '@emotion/react';
+import { css } from '@emotion/react';
+import { CSSProperties, ElementType } from 'react';
 
 import { color, fontSize, fontWeight } from '../../config/styles';
 
@@ -15,7 +15,7 @@ export interface ITextProps {
   /** 텍스트 색상 */
   textColor?: keyof typeof color;
   /** 그 외 커스텀 설정 */
-  etcStyles?: CSSObject;
+  etcStyles?: CSSProperties;
 }
 
 function Text<T extends ElementType = 'span'>({

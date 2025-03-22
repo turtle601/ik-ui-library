@@ -1,6 +1,5 @@
 import { CSSProperties, ElementType, ReactNode } from 'react';
-
-import { css, CSSObject } from '@emotion/react';
+import { css } from '@emotion/react';
 
 import type { PolymorpicProps } from '../../@types/polymorpic';
 
@@ -8,7 +7,7 @@ interface GridContainerProps {
   isFit?: boolean;
   gap?: CSSProperties['gap'];
   gridItemSize: `${number}%`;
-  etcStyles?: CSSObject;
+  etcStyles?: CSSProperties;
   children: ReactNode;
 }
 

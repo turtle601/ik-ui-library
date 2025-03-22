@@ -1,14 +1,12 @@
-import React from 'react';
-
-import { CSSObject } from '@emotion/react';
+import React, { CSSProperties } from 'react';
 
 import Flex from './flex';
 
 import type { PolymorpicProps } from '../@types/polymorpic';
 
 interface ICenterProps {
-  direction?: CSSObject['flexDirection'];
-  etcStyles?: CSSObject;
+  direction?: CSSProperties['flexDirection'];
+  etcStyles?: CSSProperties;
 }
 
 const Center = <T extends React.ElementType = 'div'>({

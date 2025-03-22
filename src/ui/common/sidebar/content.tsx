@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { CSSProperties } from 'react';
 import ReactDOM from 'react-dom';
 
-import { css, CSSObject } from '@emotion/react';
+import { css } from '@emotion/react';
 import { ComponentPropsWithoutRef } from 'react';
 import { useSidebarStore } from './model/useSidebar';
 
 interface ContentProps extends ComponentPropsWithoutRef<'div'> {
   dom: HTMLElement;
   children: React.ReactNode;
-  etcStyles?: CSSObject;
+  etcStyles?: CSSProperties;
 }
 
 function Content({

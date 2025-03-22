@@ -1,6 +1,4 @@
-import React from 'react';
-
-import type { CSSObject } from '@emotion/react';
+import React, { CSSProperties } from 'react';
 
 export type SpacerType = 'vertical' | 'horizontal';
 
@@ -25,7 +23,7 @@ const getSpacerStyle = <T extends SpacerType>({
 };
 
 interface ISpacerProps<T extends SpacerType> {
-  flex?: CSSObject['flex'];
+  flex?: CSSProperties['flex'];
   space?: (typeof spacer)[keyof typeof spacer];
   direction: T;
 }
@@ -35,7 +33,7 @@ function Spacer<T extends SpacerType>({
   space,
   flex = 'none',
   etcStyles = {},
-}: ISpacerProps<T> & { etcStyles?: CSSObject }) {
+}: ISpacerProps<T> & { etcStyles?: CSSProperties }) {
   return (
     <div
       css={css({ ...getSpacerStyle({ direction, space }), flex, ...etcStyles })}
