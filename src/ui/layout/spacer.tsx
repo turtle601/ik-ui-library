@@ -34,9 +34,12 @@ function Spacer<T extends SpacerType>({
   direction,
   space,
   flex = 'none',
-}: ISpacerProps<T>) {
+  etcStyles = {},
+}: ISpacerProps<T> & { etcStyles?: CSSObject }) {
   return (
-    <div css={css({ ...getSpacerStyle({ direction, space }), flex })}></div>
+    <div
+      css={css({ ...getSpacerStyle({ direction, space }), flex, ...etcStyles })}
+    ></div>
   );
 }
 
