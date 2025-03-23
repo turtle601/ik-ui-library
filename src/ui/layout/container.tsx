@@ -3,8 +3,8 @@ import React, { CSSProperties } from 'react';
 import type { PolymorpicProps } from '../@types/polymorpic';
 
 interface ContainerProps {
-  maxWidth: CSSProperties['maxWidth'];
-  minWidth: CSSProperties['minWidth'];
+  maxWidth?: CSSProperties['maxWidth'];
+  minWidth?: CSSProperties['minWidth'];
   etcStyles?: CSSProperties;
 }
 
