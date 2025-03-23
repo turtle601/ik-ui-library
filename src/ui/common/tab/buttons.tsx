@@ -16,6 +16,7 @@ function Buttons({ etcStyle = {}, children, ...attribute }: ButtonsProps) {
   return (
     <ul
       css={css({
+        width: '100%',
         ...etcStyle,
       })}
       {...attribute}

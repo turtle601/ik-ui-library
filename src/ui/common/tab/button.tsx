@@ -3,12 +3,14 @@ import { ComponentPropsWithoutRef, MouseEventHandler } from 'react';
 import { css } from '@emotion/react';
 
 import { useTabStore } from './model/useTab';
+
 import type { EtcStylesType } from '../../@types/style';
 
-export interface ButtonProps extends ComponentPropsWithoutRef<'li'> {
+export interface ButtonProps
+  extends Omit<ComponentPropsWithoutRef<'li'>, 'children'> {
   tabId?: number;
-  children: React.ReactNode;
   etcStyles?: EtcStylesType;
+  children: (isActive: boolean) => React.ReactNode;
 }
 
 function Button({
@@ -17,7 +19,9 @@ function Button({
   etcStyles = {},
   ...attribute
 }: ButtonProps) {
-  const { setFocusId } = useTabStore();
+  const { focusId, setFocusId } = useTabStore();
+
+  const isActive = focusId === tabId;
 
   const handleClick: MouseEventHandler<HTMLLIElement> = (e) => {
     const { onClick } = attribute;
@@ -32,13 +36,14 @@ function Button({
   return (
     <li
       css={css({
+        width: '100%',
         cursor: 'pointer',
         ...etcStyles,
       })}
       onClick={handleClick}
       {...attribute}
     >
-      {children}
+      {children(isActive)}
     </li>
   );
 }
