@@ -1,8 +1,10 @@
 import { css } from '@emotion/react';
 
-import { CSSProperties, PropsWithChildren } from 'react';
+import { PropsWithChildren } from 'react';
 
-const getMediaStyle = (breakpoint: number, breakPointStyle: CSSProperties) => {
+import type { EtcStylesType } from '../@types/style';
+
+const getMediaStyle = (breakpoint: number, breakPointStyle: EtcStylesType) => {
   return {
     [`@media (min-width: ${breakpoint}px)`]: {
       ...breakPointStyle,
@@ -11,9 +13,9 @@ const getMediaStyle = (breakpoint: number, breakPointStyle: CSSProperties) => {
 };
 
 interface ResponsiveProps {
-  defaultStyles?: CSSProperties;
+  defaultStyles?: EtcStylesType;
   breakpoint: number[];
-  breakPointStyles: CSSProperties[];
+  breakPointStyles: EtcStylesType[];
 }
 
 function Responsive({

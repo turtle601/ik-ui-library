@@ -3,10 +3,11 @@ import React, { CSSProperties } from 'react';
 import Flex from './flex';
 
 import type { PolymorpicProps } from '../@types/polymorpic';
+import type { EtcStylesType } from '../@types/style';
 
 interface ICenterProps {
   direction?: CSSProperties['flexDirection'];
-  etcStyles?: CSSProperties;
+  etcStyles?: EtcStylesType;
 }
 
 const Center = <T extends React.ElementType = 'div'>({

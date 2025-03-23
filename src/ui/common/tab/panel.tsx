@@ -1,11 +1,13 @@
-import { ComponentPropsWithoutRef, CSSProperties } from 'react';
+import { ComponentPropsWithoutRef } from 'react';
 import { css } from '@emotion/react';
 
 import { useTabStore } from './model/useTab';
 
+import type { EtcStylesType } from '../../@types/style';
+
 export interface PanelProps extends ComponentPropsWithoutRef<'div'> {
   tabId?: number;
-  etcStyles?: CSSProperties;
+  etcStyles?: EtcStylesType;
   children: React.ReactNode;
 }
 

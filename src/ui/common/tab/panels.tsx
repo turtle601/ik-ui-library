@@ -1,13 +1,14 @@
-import { ComponentPropsWithoutRef, CSSProperties, ReactElement } from 'react';
+import { ComponentPropsWithoutRef, ReactElement } from 'react';
 import { css } from '@emotion/react';
 
 import { allocateTabIdForChildren } from './lib/allcateTabIdForChildren';
 
 import type { PanelProps } from './panel';
+import type { EtcStylesType } from '../../@types/style';
 
 interface PanelsProps extends ComponentPropsWithoutRef<'div'> {
   children: ReactElement<PanelProps>[];
-  etcStyle?: CSSProperties;
+  etcStyle?: EtcStylesType;
 }
 
 function Panels({ children, etcStyle = {}, ...attribute }: PanelsProps) {

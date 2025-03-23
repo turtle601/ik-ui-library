@@ -5,6 +5,8 @@ export type SpacerType = 'vertical' | 'horizontal';
 import { css } from '@emotion/react';
 import { spacer } from '../../config/styles';
 
+import type { EtcStylesType } from '../@types/style';
+
 const getSpacerStyle = <T extends SpacerType>({
   direction,
   space,
@@ -33,7 +35,7 @@ function Spacer<T extends SpacerType>({
   space,
   flex = 'none',
   etcStyles = {},
-}: ISpacerProps<T> & { etcStyles?: CSSProperties }) {
+}: ISpacerProps<T> & { etcStyles?: EtcStylesType }) {
   return (
     <div
       css={css({ ...getSpacerStyle({ direction, space }), flex, ...etcStyles })}

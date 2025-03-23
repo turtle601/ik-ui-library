@@ -1,14 +1,16 @@
-import React, { CSSProperties } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { css } from '@emotion/react';
 import { ComponentPropsWithoutRef } from 'react';
 import { useSidebarStore } from './model/useSidebar';
 
+import type { EtcStylesType } from '../../@types/style';
+
 interface ContentProps extends ComponentPropsWithoutRef<'div'> {
   dom: HTMLElement;
   children: React.ReactNode;
-  etcStyles?: CSSProperties;
+  etcStyles?: EtcStylesType;
 }
 
 function Content({

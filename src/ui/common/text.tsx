@@ -1,9 +1,10 @@
 import { css } from '@emotion/react';
-import { CSSProperties, ElementType } from 'react';
+import { ElementType } from 'react';
 
 import { color, fontSize, fontWeight } from '../../config/styles';
 
 import type { PolymorpicProps } from '../@types/polymorpic';
+import type { EtcStylesType } from '../@types/style';
 
 export interface ITextProps {
   /** 텍스트 메세지 */
@@ -15,7 +16,7 @@ export interface ITextProps {
   /** 텍스트 색상 */
   textColor?: keyof typeof color;
   /** 그 외 커스텀 설정 */
-  etcStyles?: CSSProperties;
+  etcStyles?: EtcStylesType;
 }
 
 function Text<T extends ElementType = 'span'>({

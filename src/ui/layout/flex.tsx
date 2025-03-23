@@ -2,13 +2,14 @@ import { css } from '@emotion/react';
 import React, { CSSProperties } from 'react';
 
 import type { PolymorpicProps } from '../@types/polymorpic';
+import type { EtcStylesType } from '../@types/style';
 
 interface FlexProps {
   direction?: CSSProperties['flexDirection'];
   justify?: CSSProperties['justifyContent'];
   align?: CSSProperties['alignItems'];
   gap?: CSSProperties['gap'];
-  etcStyles?: CSSProperties;
+  etcStyles?: EtcStylesType;
   children: React.ReactNode;
 }
 

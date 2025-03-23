@@ -5,10 +5,11 @@ import { css } from '@emotion/react';
 import { allocateTabIdForChildren } from './lib/allcateTabIdForChildren';
 
 import type { ButtonProps } from './button';
+import type { EtcStylesType } from '../../@types/style';
 
 interface ButtonsProps extends ComponentPropsWithoutRef<'ul'> {
   children: ReactElement<ButtonProps>[];
-  etcStyle?: CSSProperties;
+  etcStyle?: EtcStylesType;
 }
 
 function Buttons({ etcStyle = {}, children, ...attribute }: ButtonsProps) {

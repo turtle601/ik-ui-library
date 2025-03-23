@@ -1,11 +1,12 @@
 import React, { CSSProperties } from 'react';
 
 import type { PolymorpicProps } from '../@types/polymorpic';
+import type { EtcStylesType } from '../@types/style';
 
 interface ContainerProps {
   maxWidth?: CSSProperties['maxWidth'];
   minWidth?: CSSProperties['minWidth'];
-  etcStyles?: CSSProperties;
+  etcStyles?: EtcStylesType;
 }
 
 function Container<T extends React.ElementType = 'div'>({

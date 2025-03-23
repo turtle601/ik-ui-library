@@ -1,17 +1,14 @@
-import {
-  ComponentPropsWithoutRef,
-  CSSProperties,
-  MouseEventHandler,
-} from 'react';
+import { ComponentPropsWithoutRef, MouseEventHandler } from 'react';
 
 import { css } from '@emotion/react';
 
 import { useTabStore } from './model/useTab';
+import type { EtcStylesType } from '../../@types/style';
 
 export interface ButtonProps extends ComponentPropsWithoutRef<'li'> {
   tabId?: number;
   children: React.ReactNode;
-  etcStyles?: CSSProperties;
+  etcStyles?: EtcStylesType;
 }
 
 function Button({
