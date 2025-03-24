@@ -1,6 +1,6 @@
 {
   "name": "ik-ui-library",
-  "version": "1.5.5",
+  "version": "1.6.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "repository": "https://github.com/turtle601/ik-ui-library.git",

@@ -1,33 +1,29 @@
-import { CSSProperties, ElementType, ReactNode } from 'react';
-
+import { ElementType, ReactNode } from 'react';
 import { css } from '@emotion/react';
 
 import type { PolymorpicProps } from '../../@types/polymorpic';
 import type { EtcStylesType } from '../../@types/style';
 
-interface IGridContainerProps {
+export interface IGridItemProps {
+  xs: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
   children: ReactNode;
-  gap?: CSSProperties['gap'];
   etcStyles?: EtcStylesType;
 }
 
-function Container<T extends ElementType = 'div'>({
+function Item<T extends ElementType = 'div'>({
   as,
+  xs,
   children,
-  gap = '0px',
   etcStyles = {},
   ...attributes
-}: PolymorpicProps<T, IGridContainerProps>) {
+}: PolymorpicProps<T, IGridItemProps>) {
   const Element = as || 'div';
 
   return (
     <Element
       css={css({
-        display: 'grid',
         width: '100%',
-        height: 'auto',
-        gridTemplateColumns: `repeat(12, minmax(0, 1fr))`,
-        gap: gap || '0px',
+        gridColumn: `auto / span ${xs || 4}`,
         ...etcStyles,
       })}
       {...attributes}
@@ -37,4 +33,4 @@ function Container<T extends ElementType = 'div'>({
   );
 }
 
-export default Container;
+export default Item;

@@ -1,5 +1,4 @@
-import { css } from '@emotion/react';
-import { CSSProperties } from 'react';
+import { CSSObject } from '@emotion/react';
 
 import { Grid } from '../ui';
 
@@ -15,7 +14,7 @@ export default meta;
 
 type Story = StoryObj<typeof Grid>;
 
-const getGridItemStyle = (): CSSProperties => {
+const getGridItemStyle = (): CSSObject => {
   return {
     width: '100%',
     height: '100%',
@@ -26,16 +25,32 @@ const getGridItemStyle = (): CSSProperties => {
 export const Default: Story = {
   render: () => (
     <Grid.Container
-      gridItemSize="20%"
-      gap={'4px'}
+      gap={'8px'}
       etcStyles={{
-        width: '500px',
+        width: '100%',
       }}
     >
-      {Array(10)
+      <Grid.Item
+        xs={12}
+        etcStyles={{
+          ...getGridItemStyle(),
+        }}
+      >
+        그리드
+      </Grid.Item>
+      {Array(9)
         .fill(0)
         .map((v, i) => {
-          return <div css={css({ ...getGridItemStyle() })}>그리드</div>;
+          return (
+            <Grid.Item
+              xs={4}
+              etcStyles={{
+                ...getGridItemStyle(),
+              }}
+            >
+              {i}
+            </Grid.Item>
+          );
         })}
     </Grid.Container>
   ),
