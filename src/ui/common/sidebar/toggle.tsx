@@ -15,7 +15,12 @@ function Toggle({ children, etcStyles = {}, ...attributes }: ToggleProps) {
 
   return (
     <button
-      css={css({ width: '100%', cursor: 'pointer', ...etcStyles })}
+      css={css({
+        width: '100%',
+        cursor: 'pointer',
+        backgroundColor: 'transparent',
+        ...etcStyles,
+      })}
       onClick={toggle}
       {...attributes}
     >
