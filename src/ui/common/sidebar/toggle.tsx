@@ -14,7 +14,11 @@ function Toggle({ children, etcStyles = {}, ...attributes }: ToggleProps) {
   const { toggle } = useSidebarStore();
 
   return (
-    <button css={css({ ...etcStyles })} onClick={toggle} {...attributes}>
+    <button
+      css={css({ width: '100%', cursor: 'pointer', ...etcStyles })}
+      onClick={toggle}
+      {...attributes}
+    >
       {children}
     </button>
   );
