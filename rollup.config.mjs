@@ -1,6 +1,7 @@
 import babel from '@rollup/plugin-babel';
 
 import dts from 'rollup-plugin-dts';
+import svgr from '@svgr/rollup';
 import typescript from '@rollup/plugin-typescript';
 
 export default [
@@ -29,6 +30,6 @@ export default [
       file: './dist/index.d.ts',
       format: 'esm',
     },
-    plugins: [dts()],
+    plugins: [dts(), svgr()],
   },
 ];
