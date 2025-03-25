@@ -10,7 +10,7 @@ import {
   getNumBtnStyle,
 } from '../lib';
 
-interface INumBtnProps {
+export interface INumBtnProps {
   pageNum: number;
 }
 

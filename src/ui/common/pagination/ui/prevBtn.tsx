@@ -12,7 +12,7 @@ import {
   getHoverBtnStyle,
 } from '../lib';
 
-interface IPrevBtnProps {
+export interface IPrevBtnProps {
   isDisabled: boolean;
 }
 

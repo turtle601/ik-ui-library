@@ -1,7 +1,7 @@
 import { useCallback, useMemo, useState } from 'react';
 import { PaginationContext } from '../model';
 
-interface IProviderProps {
+export interface IProviderProps {
   children: React.ReactNode;
 }
 

@@ -1,6 +1,6 @@
-import { Context, createContext, useContext } from 'react';
+import { Context, createContext } from 'react';
 
-interface IPaginationContextProps {
+export interface IPaginationContextProps {
   currentPage: number;
   goPrevPage: VoidFunction;
   goNextPage: VoidFunction;

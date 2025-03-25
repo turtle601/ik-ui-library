@@ -10,7 +10,7 @@ interface IChildrenParams {
   isNextDisabled: boolean;
 }
 
-interface IBtnContainerProps {
+export interface IBtnContainerProps {
   totalPage: number;
   range: number;
   children: ({
