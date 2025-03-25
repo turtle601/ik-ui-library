@@ -46,6 +46,7 @@ function Content({
           defaultStyles={{
             width: '100%',
             height: '80%',
+            zIndex: 11,
             position: 'absolute',
             bottom: 0,
           }}

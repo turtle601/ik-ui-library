@@ -23,6 +23,7 @@ function Responsive({
   breakPointStyles,
   defaultStyles = {},
   children,
+  ...attribute
 }: PropsWithChildren<ResponsiveProps>) {
   return (
     <div
@@ -36,6 +37,7 @@ function Responsive({
           {}
         ),
       })}
+      {...attribute}
     >
       {children}
     </div>
