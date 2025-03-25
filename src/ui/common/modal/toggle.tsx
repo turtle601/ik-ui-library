@@ -21,14 +21,10 @@ function Toggle({
   const { toggle } = useModalStore();
 
   const handleClick: MouseEventHandler<HTMLButtonElement> = (event) => {
-    console.log('Before onClick');
-
     if (externalOnClick) {
       externalOnClick(event);
-      console.log('After onClick, before toggle');
     }
 
-    console.log('Calling toggle with:', modalContent);
     toggle(modalContent);
   };
 
