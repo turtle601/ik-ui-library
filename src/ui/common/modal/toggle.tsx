@@ -1,4 +1,4 @@
-import React, { ComponentPropsWithoutRef } from 'react';
+import React, { ComponentPropsWithoutRef, MouseEventHandler } from 'react';
 import { css } from '@emotion/react';
 
 import { useModalStore } from './model/useModal';
@@ -18,8 +18,13 @@ function Toggle({
   ...attributes
 }: ToggleProps) {
   const { toggle } = useModalStore();
+  const { onClick } = attributes;
 
-  const handleClick = () => {
+  const handleClick: MouseEventHandler<HTMLButtonElement> = (event) => {
+    if (onClick) {
+      onClick(event);
+    }
+
     toggle(modalContent);
   };
 

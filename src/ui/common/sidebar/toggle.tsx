@@ -1,9 +1,9 @@
 import React, { ComponentPropsWithoutRef } from 'react';
+import { css } from '@emotion/react';
 
 import { useSidebarStore } from './model/useSidebar';
 
 import type { EtcStylesType } from '../../@types/style';
-import { css } from '@emotion/react';
 
 interface ToggleProps extends ComponentPropsWithoutRef<'button'> {
   children: React.ReactNode;
@@ -11,7 +11,16 @@ interface ToggleProps extends ComponentPropsWithoutRef<'button'> {
 }
 
 function Toggle({ children, etcStyles = {}, ...attributes }: ToggleProps) {
+  const { onClick } = attributes;
   const { toggle } = useSidebarStore();
+
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    if (onClick) {
+      onClick(event);
+    }
+
+    toggle();
+  };
 
   return (
     <button
@@ -21,7 +30,7 @@ function Toggle({ children, etcStyles = {}, ...attributes }: ToggleProps) {
         backgroundColor: 'transparent',
         ...etcStyles,
       })}
-      onClick={toggle}
+      onClick={handleClick}
       {...attributes}
     >
       {children}
