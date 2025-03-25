@@ -7,11 +7,21 @@ import type { EtcStylesType } from '../../@types/style';
 
 interface ToggleProps extends ComponentPropsWithoutRef<'button'> {
   children: React.ReactNode;
+  modalContent?: React.ReactNode;
   etcStyles?: EtcStylesType;
 }
 
-function Toggle({ children, etcStyles = {}, ...attributes }: ToggleProps) {
+function Toggle({
+  children,
+  modalContent = null,
+  etcStyles = {},
+  ...attributes
+}: ToggleProps) {
   const { toggle } = useModalStore();
+
+  const handleClick = () => {
+    toggle(modalContent);
+  };
 
   return (
     <button
@@ -21,7 +31,7 @@ function Toggle({ children, etcStyles = {}, ...attributes }: ToggleProps) {
         backgroundColor: 'transparent',
         ...etcStyles,
       })}
-      onClick={toggle}
+      onClick={handleClick}
       {...attributes}
     >
       {children}

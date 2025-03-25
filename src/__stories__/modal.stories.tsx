@@ -31,7 +31,7 @@ const Item = () => {
 export const Default: Story = {
   render: () => (
     <>
-      <Modal.Toggle>
+      <Modal.Toggle modalContent={<Item />}>
         <Center
           etcStyles={{
             width: '150px',
@@ -44,9 +44,7 @@ export const Default: Story = {
       <Modal.Content
         breakpoint={768}
         dom={document.querySelector('#modal') as HTMLElement}
-      >
-        <Item />
-      </Modal.Content>
+      />
     </>
   ),
 };

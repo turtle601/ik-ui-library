@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom';
 import { css } from '@emotion/react';
-import React, { ComponentPropsWithoutRef } from 'react';
+import { ComponentPropsWithoutRef } from 'react';
 
 import { Responsive } from '../../layout';
 
@@ -12,18 +12,20 @@ import { borderRadius } from '../../../config';
 interface ContentProps extends ComponentPropsWithoutRef<'div'> {
   dom: HTMLElement;
   breakpoint: number;
-  children: React.ReactNode;
   etcStyles?: EtcStylesType;
 }
 
 function Content({
   dom,
-  children,
   breakpoint,
   etcStyles = {},
   ...attribute
 }: ContentProps) {
-  const { isOpen, toggle } = useModalStore();
+  const { isOpen, content, toggle } = useModalStore();
+
+  const closeModal = () => {
+    toggle(null);
+  };
 
   return (
     isOpen &&
@@ -39,7 +41,7 @@ function Content({
           backgroundColor: 'rgba(22,28,45,.2)',
           ...etcStyles,
         })}
-        onClick={toggle}
+        onClick={closeModal}
         {...attribute}
       >
         <Responsive
@@ -66,7 +68,7 @@ function Content({
             e.stopPropagation();
           }}
         >
-          {children}
+          {content}
         </Responsive>
       </div>,
       dom
