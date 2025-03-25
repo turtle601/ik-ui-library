@@ -14,16 +14,25 @@ import {
 
 export interface IPrevBtnProps {
   isDisabled: boolean;
+  externalOnClick?: () => void;
 }
 
-function PrevBtn({ isDisabled }: IPrevBtnProps) {
+function PrevBtn({ isDisabled, externalOnClick }: IPrevBtnProps) {
   const { goPrevPage } = usePaginationContext();
+
+  const handleClick = () => {
+    if (externalOnClick) {
+      externalOnClick();
+    }
+
+    goPrevPage();
+  };
 
   return (
     <Center
       as="button"
       disabled={isDisabled}
-      onClick={goPrevPage}
+      onClick={handleClick}
       css={css({
         ...getCommonBtnStyle(),
         ...getHoverBtnStyle(),

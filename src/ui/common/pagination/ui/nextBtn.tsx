@@ -14,16 +14,25 @@ import {
 
 export interface INextBtnProps {
   isDisabled: boolean;
+  externalOnClick?: () => void;
 }
 
-function NextBtn({ isDisabled }: INextBtnProps) {
+function NextBtn({ isDisabled, externalOnClick }: INextBtnProps) {
   const { goNextPage } = usePaginationContext();
+
+  const handleClick = () => {
+    if (externalOnClick) {
+      externalOnClick();
+    }
+
+    goNextPage();
+  };
 
   return (
     <Center
       as="button"
       disabled={isDisabled}
-      onClick={goNextPage}
+      onClick={handleClick}
       css={css({
         ...getCommonBtnStyle(),
         ...getHoverBtnStyle(),
