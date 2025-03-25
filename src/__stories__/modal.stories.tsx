@@ -23,7 +23,16 @@ const Item = () => {
         backgroundColor: '#fff',
       })}
     >
-      안녕
+      <Modal.Toggle modalContent={null}>
+        <Center
+          etcStyles={{
+            width: '150px',
+            height: '100px',
+          }}
+        >
+          닫기
+        </Center>
+      </Modal.Toggle>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom';
 import { css } from '@emotion/react';
-import { ComponentPropsWithoutRef } from 'react';
+import { ComponentPropsWithoutRef, MouseEventHandler } from 'react';
 
 import { Responsive } from '../../layout';
 
@@ -23,7 +23,7 @@ function Content({
 }: ContentProps) {
   const { isOpen, content, toggle } = useModalStore();
 
-  const closeModal = () => {
+  const closeModal: MouseEventHandler<HTMLDivElement> = (event) => {
     toggle(null);
   };
 
@@ -58,6 +58,7 @@ function Content({
               width: '500px',
               height: '500px',
               position: 'absolute',
+              zIndex: 11,
               top: '50%',
               left: '50%',
               transform: 'translate(-50%, -50%)',

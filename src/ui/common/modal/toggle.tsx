@@ -1,30 +1,34 @@
-import React, { ComponentPropsWithoutRef, MouseEventHandler } from 'react';
+import React, { MouseEventHandler } from 'react';
 import { css } from '@emotion/react';
 
 import { useModalStore } from './model/useModal';
 
 import type { EtcStylesType } from '../../@types/style';
 
-interface ToggleProps extends ComponentPropsWithoutRef<'button'> {
+interface ToggleProps {
   children: React.ReactNode;
   modalContent?: React.ReactNode;
   etcStyles?: EtcStylesType;
+  externalOnClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
 function Toggle({
   children,
   modalContent = null,
+  externalOnClick,
   etcStyles = {},
-  ...attributes
 }: ToggleProps) {
   const { toggle } = useModalStore();
-  const { onClick } = attributes;
 
   const handleClick: MouseEventHandler<HTMLButtonElement> = (event) => {
-    if (onClick) {
-      onClick(event);
+    console.log('Before onClick');
+
+    if (externalOnClick) {
+      externalOnClick(event);
+      console.log('After onClick, before toggle');
     }
 
+    console.log('Calling toggle with:', modalContent);
     toggle(modalContent);
   };
 
@@ -37,7 +41,6 @@ function Toggle({
         ...etcStyles,
       })}
       onClick={handleClick}
-      {...attributes}
     >
       {children}
     </button>
