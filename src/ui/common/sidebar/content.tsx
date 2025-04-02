@@ -19,7 +19,7 @@ function Content({
   etcStyles = {},
   ...attribute
 }: ContentProps) {
-  const { isOpen, toggle } = useSidebarStore();
+  const { isOpen, close } = useSidebarStore();
 
   return (
     isOpen &&
@@ -35,7 +35,7 @@ function Content({
           backgroundColor: 'rgba(22,28,45,.2)',
           ...etcStyles,
         })}
-        onClick={toggle}
+        onClick={close}
         {...attribute}
       >
         <div

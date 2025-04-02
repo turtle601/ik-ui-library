@@ -3,23 +3,28 @@ import { css } from '@emotion/react';
 
 import { useSidebarStore } from './model/useSidebar';
 
-import type { EtcStylesType } from '../../@types/style';
+import type { EtcStylesType } from '@/ui/@types/style';
 
-interface ToggleProps extends ComponentPropsWithoutRef<'button'> {
+interface CloseProps extends ComponentPropsWithoutRef<'button'> {
   children: React.ReactNode;
+  externalOnClick?: VoidFunction;
   etcStyles?: EtcStylesType;
 }
 
-function Toggle({ children, etcStyles = {}, ...attributes }: ToggleProps) {
-  const { onClick } = attributes;
-  const { toggle } = useSidebarStore();
+function Close({
+  children,
+  externalOnClick,
+  etcStyles = {},
+  ...attributes
+}: CloseProps) {
+  const { close } = useSidebarStore();
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    if (onClick) {
-      onClick(event);
+    if (externalOnClick) {
+      externalOnClick();
     }
 
-    toggle();
+    close();
   };
 
   return (
@@ -38,4 +43,4 @@ function Toggle({ children, etcStyles = {}, ...attributes }: ToggleProps) {
   );
 }
 
-export default Toggle;
+export default Close;
