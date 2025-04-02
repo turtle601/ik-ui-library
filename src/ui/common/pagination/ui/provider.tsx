@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { PaginationContext } from '../model';
 
 export interface IProviderProps {
@@ -11,15 +11,18 @@ function Provider({ currentPageNum = 1, children }: IProviderProps) {
 
   const goPrevPage = useCallback(() => {
     setCurrentPage((page) => page - 1);
-  }, []);
+  }, [currentPage]);
 
   const goNextPage = useCallback(() => {
     setCurrentPage((page) => page + 1);
-  }, []);
+  }, [currentPage]);
 
-  const goTargetPage = useCallback((targetPage: number) => {
-    setCurrentPage(targetPage);
-  }, []);
+  const goTargetPage = useCallback(
+    (targetPage: number) => {
+      setCurrentPage(targetPage);
+    },
+    [currentPage]
+  );
 
   const value = useMemo(
     () => ({
