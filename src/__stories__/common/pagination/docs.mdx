@@ -1,0 +1,129 @@
+import { Canvas } from '@storybook/addon-docs';
+
+# Pagination
+
+<br />
+
+## Overview
+
+Pagination 컴포넌트는 페이지네이션 UI를 구성하기 위한 컴포넌트 모듈입니다.
+`Pagination.Provider`로 상태를 관리하며 `Pagination.BtnContainer`컴포넌트를 통해 `Pagination.NumBtn`, `Pagination.PrevBtn`, `Pagination.NextBtn`에 필요한 데이터를 계산합니다.
+자세한 내용은 Pagination.BtnContainer 컴포넌트를 참조바랍니다.
+
+<br />
+
+### Usage
+
+### 기본 사용법
+
+```tsx
+<Pagination.Provider>
+  <Pagination.BtnContainer totalPage={21} range={5}>
+    {({ pageNumList, isNextDisabled, isPrevDisabled }) => (
+      <Flex gap="8px">
+        <Pagination.PrevBtn isDisabled={isPrevDisabled} />
+        {pageNumList.map((pageNum) => (
+          <Pagination.NumBtn key={pageNum} pageNum={pageNum} />
+        ))}
+        <Pagination.NextBtn isDisabled={isNextDisabled} />
+      </Flex>
+    )}
+  </Pagination.BtnContainer>
+</Pagination.Provider>
+```
+
+<br />
+
+### Pagination.Provider
+
+- 설명: Pagination의 상태를 관리해주는 Provider
+
+### Props
+
+```tsx
+interface PaginationProviderProps {
+  children: React.ReactNode;
+}
+```
+
+### Pagination.BtnContainer
+
+`Pagination.BtnContainer`는 페이지네이션 숫자 버튼을 계산하여 children 요소로 전달하는 역할을 합니다.
+아래 요구사항을 모두 만족하도록 페이지네이션 숫자를 계산합니다.
+
+- [x] Prev 버튼 비활성화 처리
+      현재 페이지가 첫 번째 페이지(1)일 경우, PrevBtn은 비활성화(disabled) 상태가 되어야 합니다.
+- [x] Next 버튼 비활성화 처리
+      현재 페이지가 마지막 페이지(totalPage)일 경우, NextBtn은 비활성화(disabled) 상태가 되어야 합니다.
+- [x] 페이지 번호 표시 범위
+      페이지네이션 숫자는 range 개수만큼 표시합니다.
+      현재 페이지는 항상 가운데에 위치하도록 설정하여 사용자가 직관적으로 페이지 위치를 파악할 수 있도록 합니다.
+
+<br />
+
+Pagination.BtnContainer는 아래와 같은 값을 children 요소에 전달합니다.
+
+- pageNumList: 현재 페이지를 기준으로 range 개수만큼의 페이지 번호 리스트
+- isNextDisabled: 다음 페이지로 이동할 수 없는 상태 여부
+- isPrevDisabled: 이전 페이지로 이동할 수 없는 상태 여부
+
+### 예시
+
+```tsx
+<Pagination.BtnContainer totalPage={21} range={5}>
+  {({ pageNumList, isNextDisabled, isPrevDisabled }) => (
+    <Flex gap="8px">
+      <Pagination.PrevBtn isDisabled={isPrevDisabled} />
+      {pageNumList.map((pageNum) => (
+        <Pagination.NumBtn key={pageNum} pageNum={pageNum} />
+      ))}
+      <Pagination.NextBtn isDisabled={isNextDisabled} />
+    </Flex>
+  )}
+</Pagination.BtnContainer>
+```
+
+### Pagination.NumBtn
+
+- 설명: 해당 페이지를 요청하는 버튼
+
+### Props
+
+```tsx
+export interface INumBtnProps {
+  /** 페이지 숫자 */
+  pageNum: number;
+  /** 페이지 버튼을 눌렀을 때 실행되는 다른 액션 */
+  externalOnClick?: () => void;
+}
+```
+
+### Pagination.PrevBtn
+
+- 설명: 이전 페이지를 요청하는 버튼
+
+### Props
+
+```tsx
+export interface IPrevBtnProps {
+  /** disabled 여부 */
+  isDisabled: boolean;
+  /** 페이지 버튼을 눌렀을 때 실행되는 다른 액션 */
+  externalOnClick?: () => void;
+}
+```
+
+### Pagination.NextBtn
+
+- 설명: 다음 페이지를 요청하는 버튼
+
+### Props
+
+```tsx
+export interface INextBtnProps {
+  /** disabled 여부 */
+  isDisabled: boolean;
+  /** 페이지 버튼을 눌렀을 때 실행되는 다른 액션 */
+  externalOnClick?: () => void;
+}
+```

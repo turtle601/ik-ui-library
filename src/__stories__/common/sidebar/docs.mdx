@@ -1,0 +1,63 @@
+import { Canvas } from '@storybook/addon-docs';
+
+# Sidebar
+
+<br />
+
+`Sidebar` 컴포넌트는 sidebar를 쉽게 구현할 수 있는 컴포넌트입니다. Sidebar를 쉽게 열고 닫을 수 있는 기능을 제공합니다.
+
+## Useage
+
+```tsx
+<>
+  <Sidebar.Open>
+    <Center
+      etcStyles={{
+        width: '150px',
+        height: '100px',
+      }}
+    >
+      sidebar 열기
+    </Center>
+  </Sidebar.Open>
+  <Sidebar.Content dom={document.querySelector('#sidebar') as HTMLElement}>
+    <Item />
+  </Sidebar.Content>
+</>
+```
+
+Sidebar 컴포넌트의 활용 예시는 **Example**을 통해 확인 가능합니다.
+
+### Sidebar.Open
+
+- 설명: Sidebar.Open은 sidebar를 열기 위한 트리거 컴포넌트입니다.
+
+### Props
+
+```tsx
+interface OpenProps extends ComponentPropsWithoutRef<'button'> {
+  /** Sidebar.Open에 표시될 UI */
+  children: React.ReactNode;
+  /** modal을 닫는 기능 외의 추가 기능 선언 */
+  externalOnClick?: VoidFunction;
+  /** 외부 스타일 */
+  etcStyles?: CSSProperties;
+}
+```
+
+### Sidebar.Close
+
+- 설명: Sidebar.Close sidebar를 열기 위한 트리거 컴포넌트입니다.
+
+### Props
+
+```tsx
+interface CloseProps extends ComponentPropsWithoutRef<'button'> {
+  /** Sidebar.Close 표시될 UI */
+  children: React.ReactNode;
+  /** modal을 닫는 기능 외의 추가 기능 선언 */
+  externalOnClick?: VoidFunction;
+  /** 외부 스타일 */
+  etcStyles?: CSSProperties;
+}
+```

@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import { Flex, Pagination } from '@/ui';
 
-import { Flex, Pagination } from '../ui';
+import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof Pagination> = {
   parameters: {
