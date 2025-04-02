@@ -2,18 +2,16 @@ import { css, CSSObject } from '@emotion/react';
 
 import { Center, Grid } from '@/ui';
 
-import Button from '@/ui/common/tab/button';
-
 import type { Meta, StoryObj } from '@storybook/react';
 import { color } from '@/config';
 
-const meta: Meta<typeof Button> = {
+const meta: Meta<typeof Grid> = {
   tags: ['autodocs'],
 };
 
 export default meta;
 
-type Story = StoryObj<typeof Button>;
+type Story = StoryObj<typeof Grid>;
 
 const getGridItemStyle = (): CSSObject => {
   return {
