@@ -1,12 +1,12 @@
 import { css } from '@emotion/react';
 
+import { Text } from '@/ui';
+import { spacer } from '@/config';
+
 import type { Meta, StoryObj } from '@storybook/react';
-import { spacer } from '../config/styles';
-import { Text } from '../ui/common';
 
 const meta: Meta<typeof Text> = {
   component: Text,
-  tags: ['autodocs'],
 };
 
 export default meta;

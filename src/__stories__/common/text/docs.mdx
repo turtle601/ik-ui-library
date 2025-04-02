@@ -1,0 +1,51 @@
+import { Canvas } from '@storybook/addon-docs';
+
+# Text
+
+<br />
+
+## Overview
+
+Text 컴포넌트를 사용하면 다양한 텍스트 스타일을 유연하게 적용할 수 있습니다.  
+기본적으로 `span` 태그로 렌더링되며, `Polymorphic` 속성을 사용하여 다른 HTML 태그로도 변경 가능합니다.  
+스타일과 속성을 간단하게 설정하여 다양한 UI를 만들 수 있습니다.
+
+<br />
+
+## Usage
+
+```tsx
+<Text label="기본 텍스트" />
+
+<Text
+  label="커스텀 스타일 텍스트"
+  textSize="lg"
+  textWeight="bold"
+  textColor="primary"
+  etcStyles={{
+    margin: '10px',
+    textDecoration: 'underline',
+  }}
+/>
+```
+
+활용 예시는 Example을 통해 확인 가능합니다.
+
+### Props
+
+```tsx
+export interface ITextProps {
+  /** 텍스트 메세지 */
+  label: string;
+  /** 텍스트 크기 (기본값: 'md') */
+  textSize?: keyof typeof fontSize;
+  /** 텍스트 굵기 (기본값: 'regular') */
+  textWeight?: keyof typeof fontWeight;
+  /** 텍스트 색상 (기본값: 'gray400') -> 디자인 시스템 color 색상값만 넣을 수 있다.*/
+  textColor?: keyof typeof color;
+  /** 그 외 커스텀 설정 */
+  etcStyles?: EtcStylesType;
+  /** 태그 관련 dom 속성 */
+  ...attribute
+}
+```
