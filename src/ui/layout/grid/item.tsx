@@ -1,11 +1,12 @@
 import { ElementType, ReactNode } from 'react';
 import { css } from '@emotion/react';
 
-import type { PolymorpicProps } from '../../@types/polymorpic';
-import type { EtcStylesType } from '../../@types/style';
+import type { XS } from '@/ui/layout/grid/lib';
+import type { PolymorpicProps } from '@/ui/@types/polymorpic';
+import type { EtcStylesType } from '@/ui/@types/style';
 
 export interface IGridItemProps {
-  xs: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+  xs: XS;
   children: ReactNode;
   etcStyles?: EtcStylesType;
 }
@@ -32,5 +33,7 @@ function Item<T extends ElementType = 'div'>({
     </Element>
   );
 }
+
+Item.displayName = 'Grid.Item';
 
 export default Item;

@@ -1,21 +1,13 @@
 import React, { cloneElement } from 'react';
 
-const isTabButton = <P>(
-  child: unknown,
-  displayName: string
-): child is React.ReactElement<P> => {
-  return (
-    React.isValidElement(child) &&
-    (child.type as any).displayName === displayName
-  );
-};
+import { isChildElement } from '@/ui/lib';
 
 export const allocateTabIdForChildren = (
   children: React.ReactNode,
   displayName: string
 ) => {
   return React.Children.map(children, (child, idx) => {
-    if (isTabButton<{ tabId: number }>(child, displayName)) {
+    if (isChildElement<{ tabId: number }>(child, displayName)) {
       return cloneElement(child, {
         tabId: idx + 1,
       });
