@@ -8,7 +8,7 @@
 
 - storybook을 활용한 컴포넌트 문서 작성 및 배포
 
-## 구현한 컴포넌트
+## 1. 구현한 컴포넌트
 
 ### layout
 
@@ -46,7 +46,7 @@
 3. borderRadius
 ```
 
-## 컴포넌트 설계 과정
+## 2. 컴포넌트 설계 과정
 
 ### 서론: 다양한 프로젝트에서 사용할 수 있는 UI 라이브러리는 어떻게 설계하면 좋을까??
 
@@ -73,7 +73,7 @@ function View() {
 
 ### 본론: 어떻게 재사용 가능한 컴포넌트를 구축했을까?
 
-**ㄱ.EtcStyles, React.Children을 활용**
+**ㄱ. EtcStyles, React.Children을 활용**
 
 서론에서 이야기했듯이 컴포넌트 외부 스타일을 React.Children과 props(EtcStyles)로 스타일링합니다.
 
@@ -84,7 +84,7 @@ export interface ITabListProps extends ComponentPropsWithoutRef<'ul'> {
 }
 ```
 
-**ㄴ.Polymoric 컴포넌트 구축**
+**ㄴ. Polymoric 컴포넌트 구축**
 
 리액트 컴포넌트를 구축하기 위해서는 특정 태그를 지정을 해주어야한다는 문제점이 있습니다. 이 또한 props를 활용해 사용할 태그를 외부로부터 주입받아서 활용했습니다.
 
@@ -122,7 +122,7 @@ export type PolymorpicProps<T extends ElementType, P> = {
   ComponentPropsWithoutRef<T>;
 ```
 
-**ㄷ.합성 컴포넌트 패턴**
+**ㄷ. 합성 컴포넌트 패턴**
 
 합성 컴포넌트 패턴을 활용하면 UI 기능을 독립적인 작은 컴포넌트로 나누어 구성할 수 있습니다.
 이때, Context API를 사용해 전역 상태를 관리하면서 각 컴포넌트가 필요한 데이터를 손쉽게 주고받도록 합니다.
@@ -142,7 +142,7 @@ export type PolymorpicProps<T extends ElementType, P> = {
 - 기본 컴포넌트들을 조합하여 하나의 큰 UI를 만들고, 일부 컴포넌트만 교체하거나 수정함으로써 유연하게 확장할 수 있습니다.
 - 기능 요구사항이 변경되더라도 각 컴포넌트를 독립적으로 수정할 수 있어 전체 구조를 변경하지 않고도 요구사항을 쉽게 반영할 수 있습니다.
 
-**ㄹ.render props 패턴 활용**
+**ㄹ. render props 패턴 활용**
 
 합성컴포넌트 패턴에서 ui에서 활용한 상태(ex. isOpen, isSelected) 들을 외부로부터 공유하고 싶을 때 사용합니다.
 
@@ -164,7 +164,7 @@ export type PolymorpicProps<T extends ElementType, P> = {
 </Pagination.Provider>
 ```
 
-## 결론
+## 3. 결론
 
 celuveat-renew-client 프로젝트를 진행하면서 재사용 가능한 UI 라이브러리를 구축해보았습니다.
 
