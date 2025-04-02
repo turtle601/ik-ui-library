@@ -11,13 +11,7 @@ interface ModalProvider {
   breakPoint?: number;
 }
 
-function Provider({
-  children,
-  isBackDropClose = true,
-  contentWrapperStyles = {},
-  contentDefaultStyles = {},
-  breakPoint,
-}: ModalProvider) {
+function Provider({ children }: ModalProvider) {
   const [isOpen, setIsOpen] = useState(false);
   const [content, setContent] = useState<React.ReactNode | null>(null);
 
@@ -36,10 +30,6 @@ function Provider({
       value={{
         isOpen,
         content,
-        isBackDropClose,
-        contentWrapperStyles,
-        contentDefaultStyles,
-        breakPoint,
         open,
         close,
       }}

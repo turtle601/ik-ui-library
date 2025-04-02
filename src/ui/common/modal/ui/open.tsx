@@ -1,7 +1,6 @@
 import React, { ComponentPropsWithoutRef, CSSProperties } from 'react';
 
 import { useModal } from '../model';
-import ContentWrapper from './contentWrapper';
 
 interface OpenProps extends ComponentPropsWithoutRef<'button'> {
   modalContent: React.ReactNode;
