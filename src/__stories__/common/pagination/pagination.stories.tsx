@@ -31,33 +31,3 @@ export const Default: Story = {
     </Pagination.Provider>
   ),
 };
-
-export const PrevBtn: Story = {
-  render: () => {
-    return <Pagination.PrevBtn isDisabled={false} />;
-  },
-};
-
-export const NextBtn_Disabled: Story = {
-  render: () => {
-    return <Pagination.NextBtn isDisabled={true} />;
-  },
-};
-
-export const NextBtn: Story = {
-  render: () => {
-    return <Pagination.NextBtn isDisabled={false} />;
-  },
-};
-
-export const PrevBtn_Disabled: Story = {
-  render: () => {
-    return <Pagination.PrevBtn isDisabled={true} />;
-  },
-};
-
-export const NumberBtn: Story = {
-  render: () => {
-    return <Pagination.NumBtn pageNum={5} />;
-  },
-};
