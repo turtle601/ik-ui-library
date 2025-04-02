@@ -1,0 +1,88 @@
+import { Canvas } from '@storybook/addon-docs';
+
+# Grid
+
+<br />
+
+## Overview
+
+Grid.Container와 Grid.Item을 사용하면 Grid-box를 손쉽게 사용할 수 있습니다.
+뿐만 아니라 Grid.Container의 responsive 속성을 활용해 반응형 레이아웃도 손쉽게 구성할 수 있습니다.
+
+<br />
+
+## Usage
+
+```tsx
+<Grid.Container
+  gap={'8px'}
+  responsive={[
+    [4, 400],
+    [8, 1024],
+  ]}
+  etcStyles={{
+    width: '500px',
+    height: '500px',
+  }}
+>
+  {Array(9)
+    .fill(0)
+    .map((v, i) => {
+      return (
+        <Grid.Item
+          xs={4}
+          etcStyles={{
+            ...getGridItemStyle(),
+          }}
+        >
+          {i}
+        </Grid.Item>
+      );
+    })}
+</Grid.Container>
+```
+
+활용 예시는 **Example**에서 확인 가능합니다.
+
+### Grid.Container
+
+- Grid 컨테이너를 지정하는 컴포넌트입니다.
+- Grid 컨테이너 사용 시 자식 요소에 Grid.Item만 들어올 수 있습니다. (아닐 시 에러)
+
+### Props
+
+```tsx
+export interface ContainerProps {
+  /** grid 간격을 설정 (기본값 = 0px) */
+  gap?: CSSProperties['gap'];
+  /** 
+    [4, 400] viewport가 400px 까지는 열 개수 = 4
+    [8, 1024] viewport가 1024px 까지는 열 개수 = 8
+               viewport가 1024px 이상일 경우 열 개수는 12 (기본값)
+  */
+  responsive: [XS, number][];
+  /** 추가 스타일 설정 */
+  etcStyles?: EtcStylesType;
+  /** 자식 요소 */
+  children: React.ReactNode;
+}
+```
+
+### Grid.Item
+
+- Grid 컨테이너 내부의 정렬될 아이템들을 지정하는 컴포넌트
+
+### Props
+
+```tsx
+export interface ItemProps {
+  /** 렌더링할 HTML 태그 또는 컴포넌트를 지정합니다. 기본값은 div입니다. */
+  as?: ElementType;
+  /** 그리드 열의 크기를 지정합니다. 기본값은 4입니다. */
+  xs: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+  /** 추가 스타일 설정 */
+  etcStyles?: EtcStylesType;
+  /** 자식 요소 */
+  children: React.ReactNode;
+}
+```

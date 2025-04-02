@@ -1,6 +1,6 @@
 import { CSSObject } from '@emotion/react';
 
-import { Grid } from '../ui';
+import { Grid } from '@/ui';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
@@ -22,27 +22,53 @@ const getGridItemStyle = (): CSSObject => {
   };
 };
 
-export const Default: Story = {
+export const Example: Story = {
   render: () => (
     <Grid.Container
       gap={'8px'}
       etcStyles={{
-        width: '100%',
+        width: '500px',
+        height: '500px',
       }}
     >
-      <Grid.Item
-        xs={12}
-        etcStyles={{
-          ...getGridItemStyle(),
-        }}
-      >
-        그리드
-      </Grid.Item>
       {Array(9)
         .fill(0)
         .map((v, i) => {
           return (
             <Grid.Item
+              key={i}
+              xs={4}
+              etcStyles={{
+                ...getGridItemStyle(),
+              }}
+            >
+              {i}
+            </Grid.Item>
+          );
+        })}
+    </Grid.Container>
+  ),
+};
+
+export const Responsive: Story = {
+  render: () => (
+    <Grid.Container
+      gap={'8px'}
+      responsive={[
+        [4, 400],
+        [8, 1024],
+      ]}
+      etcStyles={{
+        width: '500px',
+        height: '500px',
+      }}
+    >
+      {Array(9)
+        .fill(0)
+        .map((v, i) => {
+          return (
+            <Grid.Item
+              key={i}
               xs={4}
               etcStyles={{
                 ...getGridItemStyle(),

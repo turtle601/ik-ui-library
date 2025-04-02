@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 
-import { Flex } from '../ui';
+import { Flex } from '@/ui';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
@@ -26,7 +26,7 @@ const Item = () => {
   );
 };
 
-export const Default: Story = {
+export const Example: Story = {
   render: () => (
     <Flex
       gap="12px"

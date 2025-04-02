@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Responsive from '../ui/layout/responsive';
+import { Responsive } from '@/ui';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
@@ -21,7 +21,7 @@ export const Default: Story = {
       defaultStyles={{ color: 'green' }}
       breakPointStyles={[{ color: 'red' }, { color: 'blue' }]}
     >
-      안녕하세요:
+      Responsive
     </Responsive>
   ),
 };

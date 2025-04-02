@@ -1,0 +1,44 @@
+import { Canvas } from '@storybook/addon-docs';
+
+# Spacer
+
+<br />
+
+## Overview
+
+Spacer 컴포넌트는 레이아웃 요소 간 간격을 조절하기 위해 사용됩니다.  
+수직(`vertical`) 또는 수평(`horizontal`) 방향으로 간격을 줄 수 있으며, 유연한 스타일 설정이 가능합니다.
+
+<br />
+
+## Usage
+
+```tsx
+<Flex
+  etcStyles={{
+    width: '500px',
+    height: '500px',
+  }}
+>
+  <Item />
+  <Spacer direction="horizontal" space={spacer.spacing3} />
+  <Item />
+</Flex>
+```
+
+활용 예시는 **Example**을 통해 확인 가능합니다.
+
+### Props
+
+```tsx
+export interface SpacerProps {
+  /** 간격 방향 설정 (vertical 또는 horizontal) */
+  direction: 'vertical' | 'horizontal';
+  /** flex 속성 값 (기본값: 'none') */
+  flex?: CSSProperties['flex'];
+  /** 간격 크기 설정 */
+  space?: (typeof spacer)[keyof typeof spacer];
+  /** 추가 스타일 설정 */
+  etcStyles?: EtcStylesType;
+}
+```

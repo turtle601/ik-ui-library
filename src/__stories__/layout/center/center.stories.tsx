@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 
-import { Center } from '../ui';
+import { Center } from '@/ui';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
@@ -26,13 +26,13 @@ const Item = () => {
   );
 };
 
-export const Default: Story = {
+export const Example: Story = {
   render: () => (
     <Center
       etcStyles={{
-        width: '200px',
-        height: '200px',
-        border: '1px solid red',
+        width: '500px',
+        height: '500px',
+        border: '1px solid #000',
       }}
     >
       <Item />

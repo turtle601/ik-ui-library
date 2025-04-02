@@ -1,0 +1,50 @@
+import { Canvas } from '@storybook/addon-docs';
+
+# Flex
+
+<br />
+
+## Overview
+
+Flex 컴포넌트를 사용하면 자식요소의 flex-box 기반으로 정렬할 수 있습니다.
+
+<br />
+
+## Usage
+
+```tsx
+<Flex
+  gap="12px"
+  etcStyles={{
+    width: '100%',
+    border: '1px solid black',
+  }}
+>
+  {Array(5)
+    .fill(0)
+    .map((v, id) => {
+      return <Item key={id} />;
+    })}
+</Flex>
+```
+
+활용 예시는 **Example**을 통해 확인 가능합니다.
+
+### Props
+
+```tsx
+export interface FlexProps {
+  /** Flex 방향 설정 (기본값: 'row') */
+  direction?: CSSProperties['flexDirection'];
+  /** 주 축 정렬 방식 (기본값: 'flex-start') */
+  justify?: CSSProperties['justifyContent'];
+  /** 교차 축 정렬 방식 (기본값: 'stretch') */
+  align?: CSSProperties['alignItems'];
+  /** 요소 간 간격 설정 */
+  gap?: CSSProperties['gap'];
+  /** 추가 스타일 설정 객체 */
+  etcStyles?: EtcStylesType;
+  /** 자식 요소 */
+  children: React.ReactNode;
+}
+```

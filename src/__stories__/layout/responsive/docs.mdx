@@ -1,0 +1,46 @@
+import { Canvas } from '@storybook/addon-docs';
+
+# Responsive
+
+<br />
+
+## Overview
+
+Responsive 컴포넌트는 다양한 화면 크기에 맞춰 스타일을 적용할 수 있는 컴포넌트입니다.  
+각각의 브레이크 포인트에 맞게 해당 스타일을 설정하여 반응형 레이아웃을 손쉽게 구현할 수 있습니다.
+
+<br />
+
+## Usage
+
+```tsx
+<Responsive
+  defaultStyles={{ color: 'green' }} // 720이하 혹은 defaultStyles일때의 스타일을 작성해주세요.
+  breakpoint={[720, 1200]}
+  breakPointStyles={[
+    { color: 'red' }, // 720이상 1200미만 일때의 스타일을 추가해주세요
+    { color: 'blue' }, // 1200이상 일때의 스타일을 작성해주세요
+  ]}
+>
+  Responsive
+</Responsive>
+```
+
+활용 예시는 **Example**을 통해 확인 가능합니다.
+
+### Props
+
+```tsx
+export interface ResponsiveProps {
+  /** 기본 스타일 설정 */
+  defaultStyles?: EtcStylesType;
+  /** 반응형 브레이크포인트 설정 (픽셀 단위) */
+  breakpoint: number[];
+  /** 브레이크포인트별 스타일 설정 */
+  breakPointStyles: EtcStylesType[];
+  /** 자식 요소 */
+  children: React.ReactNode;
+  /** 태그 관련 DOM 속성 */
+  ...attribute
+}
+```
